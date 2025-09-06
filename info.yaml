@@ -137,7 +137,7 @@ project:
     - "tinyQV/peri/uart/uart_tx.v"
     - "user_peripherals/affinex/mul.sv"
     - "user_peripherals/affinex/tqvp_affinex.sv"
-    - "user_peripherals/baby_cordic/baby_cordic.v"
+    - "user_peripherals/baby_cordic/tqvp_baby_cordic.v"
     - "user_peripherals/baby_cordic/cordic.v"
     - "user_peripherals/baby_cordic/cordic_stage.v"
     - "user_peripherals/baby_cordic/fixed_to_fp.v"

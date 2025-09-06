@@ -39,7 +39,17 @@ module fp_to_fixed #(
     assign frac = fp_in[22:0];
     assign mant = is_sub ? {1'b0, frac} : {1'b1, frac};
 
-    wire out_of_range = (exp > PI_EXP) || ((exp == PI_EXP) && ({1'b1, frac} > {1'b1, PI_FRAC}));
+    wire exp_gt_pi =  exp[7] &  |exp[6:0];
+    wire exp_eq_pi =  exp[7] & ~|exp[6:0];
+
+    localparam [2:0]  PI_FRAC_HI3  = 3'b100;
+    localparam [19:0] PI_FRAC_LO20 = 20'h90FDB;
+
+    wire frac_hi_gt  = (frac[22:20] > PI_FRAC_HI3);
+    wire frac_hi_eq  = (frac[22:20] == PI_FRAC_HI3);
+    wire frac_lo_gt  = (frac[19:0]  > PI_FRAC_LO20);
+
+    wire out_of_range = exp_gt_pi | (exp_eq_pi & (frac_hi_gt | (frac_hi_eq & frac_lo_gt)));
 
     always @* begin
         fp_out   = 19'd0;

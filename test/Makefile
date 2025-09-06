@@ -8,7 +8,7 @@ USER_PERIPHERAL_8 = prism.test
 USER_PERIPHERAL_9 = vga_gfx.test
 USER_PERIPHERAL_10 = pdm.test
 USER_PERIPHERAL_11 = pulse_transmitter.test
-USER_PERIPHERAL_12 = baby_cordic.test
+USER_PERIPHERAL_12 = 
 USER_PERIPHERAL_13 = vgaconsole.test
 USER_PERIPHERAL_14 =
 USER_PERIPHERAL_15 = tiny-tone.mkTinyTone_Peripheral
@@ -42,6 +42,7 @@ USER_PERIPHERAL_38 = CORDIC.test_trigonometric_simple \
 					 CORDIC.test_hyperbolic_rotating_simple \
 					 CORDIC.test_circular_rotating_sweep_and_vis
 USER_PERIPHERAL_39 = affinex.test
+USER_PERIPHERAL_40 = baby_cordic.test
 
 expand_tests = $(foreach num,$(1),$(USER_PERIPHERAL_$(num)))
 PERI_NUMBERS = $(shell seq 2 39)

@@ -853,4 +853,22 @@ module tinyQV_peripherals #(parameter CLOCK_MHZ=64) (
         .data_ready(data_ready_from_user_peri[23])
     );
 
+    tqvp_baby_cordic i_user_peri40 (
+        .clk(clk),
+        .rst_n(rst_n),
+
+        .ui_in(ui_in),
+        .uo_out(uo_out_from_user_peri[24]),
+
+        .address(addr_in[5:0]),
+        .data_in(data_in),
+
+        .data_write_n(data_write_n    | {2{~peri_user[24]}}),
+        .data_read_n(data_read_n_peri | {2{~peri_user[24]}}),
+
+        .data_out(data_from_user_peri[24]),
+        .data_ready(data_ready_from_user_peri[24])
+    );
+
+
 endmodule

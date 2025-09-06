@@ -13,7 +13,7 @@ from tqv import TinyQV
 PERIPHERAL_NUM = 5
 
 @cocotb.test()
-async def test_project(dut):
+async def test_baby_cordic(dut):
     dut._log.info("Start")
 
     # Set the clock period to 100 ns (10 MHz)
